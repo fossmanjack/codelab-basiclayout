@@ -23,6 +23,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -40,6 +41,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Surface
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -93,7 +96,6 @@ fun AlignYourBodyElement(
     @StringRes text: Int,
     modifier: Modifier = Modifier,
 ) {
-    // Implement composable here
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier,
@@ -117,9 +119,35 @@ fun AlignYourBodyElement(
 // Step: Favorite collection card - Material Surface
 @Composable
 fun FavoriteCollectionCard(
-    modifier: Modifier = Modifier
+    @DrawableRes painter: Int,
+    @StringRes text: Int,
+    modifier: Modifier = Modifier,
 ) {
-    // Implement composable here
+    Surface(
+        shape = MaterialTheme.shapes.medium,
+        color = MaterialTheme.colorScheme.surfaceVariant,
+        modifier = modifier,
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .width(255.dp),
+        ) {
+            Image(
+                painter = painterResource(painter),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .size(80.dp),
+            )
+            Text(
+                text = stringResource(text),
+                modifier = Modifier
+                    .padding(start = 16.dp),
+                style = MaterialTheme.typography.titleMedium,
+            )
+        }
+    }
 }
 
 // Step: Align your body row - Arrangements
@@ -127,7 +155,7 @@ fun FavoriteCollectionCard(
 fun AlignYourBodyRow(
     modifier: Modifier = Modifier
 ) {
-    // Implement composable here
+    // @TODO: Implement composable here
 }
 
 // Step: Favorite collections grid - LazyGrid
@@ -135,7 +163,8 @@ fun AlignYourBodyRow(
 fun FavoriteCollectionsGrid(
     modifier: Modifier = Modifier
 ) {
-    // Implement composable here
+    // @TODO: Implement composable here
+
 }
 
 // Step: Home section - Slot APIs
@@ -143,43 +172,43 @@ fun FavoriteCollectionsGrid(
 fun HomeSection(
     modifier: Modifier = Modifier
 ) {
-    // Implement composable here
+    // @TODO: Implement composable here
 }
 
 // Step: Home screen - Scrolling
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
-    // Implement composable here
+    // @TODO: Implement composable here
 }
 
 // Step: Bottom navigation - Material
 @Composable
 private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
-    // Implement composable here
+    // @TODO: Implement composable here
 }
 
 // Step: MySoothe App - Scaffold
 @Composable
 fun MySootheAppPortrait() {
-    // Implement composable here
+    // @TODO: Implement composable here
 }
 
 // Step: Bottom navigation - Material
 @Composable
 private fun SootheNavigationRail(modifier: Modifier = Modifier) {
-    // Implement composable here
+    // @TODO: Implement composable here
 }
 
 // Step: Landscape Mode
 @Composable
 fun MySootheAppLandscape(){
-    // Implement composable here
+    // @TODO: Implement composable here
 }
 
 // Step: MySoothe App
 @Composable
 fun MySootheApp() {
-    // Implement composable here
+    // @TODO: Implement composable here
 }
 
 private val alignYourBodyData = listOf(
@@ -228,6 +257,8 @@ fun AlignYourBodyElementPreview() {
 fun FavoriteCollectionCardPreview() {
     MySootheTheme {
         FavoriteCollectionCard(
+            text = R.string.fc2_nature_meditations,
+            painter = R.drawable.fc2_nature_meditations,
             modifier = Modifier.padding(8.dp)
         )
     }
